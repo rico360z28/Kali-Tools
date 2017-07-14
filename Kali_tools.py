@@ -57,8 +57,7 @@ network = """
 
 def exit_script():
 	
-	os.system("clear")
-	print codesec + line
+	clear_logo_line()
 	print(red + "    [-] Exiting the software ...\n")
 	time.sleep(2)
 	exit()
