@@ -53,6 +53,16 @@ network = """
 \033[0;1m    [!] Katoolin official script: https://github.com/LionSec/katoolin
 """
 
+######################################## FUNTION EXIT ########################################
+
+def exit_script():
+	
+	os.system("clear")
+	print codesec + line
+	print(red + "    [-] Exiting the software ...\n")
+	time.sleep(2)
+	exit()
+
 ######################################## FUNTION CLEAR, LOGO, LINE ########################################
 
 def clear_logo_line():
@@ -109,6 +119,8 @@ def remo_repo():
 	fin.close()
 	fout.close()
 
+######################################## FUNTION UPGRADE ########################################
+
 def upgrade():
 
 	clear_logo_line()
@@ -116,22 +128,27 @@ def upgrade():
 	time.sleep(5)
 	os.system("apt-get upgrade | pv -p -e -t -a -r")
 
+######################################## FUNTION MAIN ########################################
+
+def main():
+
+	os.system("clear")
+	print codesec + network
+	time.sleep(10)
+	
+	add_repo()
+	update()
+	install_tools()
+	remo_repo()
+	update()
+	upgrade()
+
 ################# STARTING A SCRIPT ########################################
 
-os.system("clear")
+try:
 
-print codesec + network
+	main()
 
-time.sleep(2)
+except KeyboardInterrupt:
 
-add_repo()
-
-update()
-
-install_tools()
-
-remo_repo()
-
-update()
-
-upgrade()
+	exit_script()
